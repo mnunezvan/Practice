@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: wiki-proyect
+    dockerfilePath: Dockerfile  # Especifica usar el Dockerfile
+    env: ruby
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: wiki-proyect-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
